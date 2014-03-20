@@ -4,5 +4,7 @@
     <string name="app_name">Pittsburgh311</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="information">Use My Information</string>
+    <string name="guest">Submit As Guest</string>
 
 </resources>
