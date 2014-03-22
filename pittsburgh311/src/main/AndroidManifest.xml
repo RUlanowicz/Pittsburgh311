@@ -16,6 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="edu.pitt.cs1635.pittsburgh311.Information"
+            android:label="@string/title_activity_information" >
+        </activity>
     </application>
 
 </manifest>

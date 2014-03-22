@@ -1,29 +1,17 @@
 package edu.pitt.cs1635.pittsburgh311;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 
-public class MainActivity extends ActionBarActivity {
+public class Information extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.information_choice);
-        Button infoButton = (Button)findViewById(R.id.information_button);
-        infoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent page = new Intent(getApplicationContext(),Information.class);
-                startActivity(page);
-            }
-        });
-
+        setContentView(R.layout.user_information);
     }
 
 
@@ -31,7 +19,7 @@ public class MainActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.information, menu);
         return true;
     }
 

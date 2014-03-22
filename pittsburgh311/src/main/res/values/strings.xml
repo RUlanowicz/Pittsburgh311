@@ -6,5 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="information">Use My Information</string>
     <string name="guest">Submit As Guest</string>
+    <string name="setup">Quick Information Setup</string>
+    <string name="title_activity_information">Information</string>
 
 </resources>
