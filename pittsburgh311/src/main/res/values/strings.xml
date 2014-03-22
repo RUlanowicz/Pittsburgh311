@@ -8,5 +8,6 @@
     <string name="guest">Submit As Guest</string>
     <string name="setup">Quick Information Setup</string>
     <string name="title_activity_information">Information</string>
+    <string name="title_activity_image_capture">ImageCapture</string>
 
 </resources>

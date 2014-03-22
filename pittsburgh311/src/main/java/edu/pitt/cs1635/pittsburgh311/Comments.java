@@ -1,46 +1,37 @@
 package edu.pitt.cs1635.pittsburgh311;
 
 import android.content.Intent;
+import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 
-public class MainActivity extends ActionBarActivity {
+public class Comments extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.information_choice);
-        Button infoButton = (Button)findViewById(R.id.information_button);
-        infoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent page = new Intent(getApplicationContext(),Information.class);
-                startActivity(page);
-            }
-        });
+        setContentView(R.layout.activity_comments);
 
-        Button guestButton = (Button)findViewById(R.id.guest_button);
-        guestButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent image = new Intent(getApplicationContext(),Comments.class);
-                startActivity(image);
-            }
-        });
+        Log.i("Comments", "In here");
 
-}
+        final int REQUEST_IMAGE_CAPTURE = 1;
+
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
+    }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.image_capture, menu);
         return true;
     }
 
