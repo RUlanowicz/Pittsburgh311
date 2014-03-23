@@ -9,8 +9,43 @@
     tools:context="edu.pitt.cs1635.pittsburgh311.Comments">
 
     <TextView
-        android:text="@string/hello_world"
+        android:text="@string/making_comments"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:id="@+id/textView"
+        android:textIsSelectable="true" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/topic_arrays"
+        android:prompt="@string/topic_prompt"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_bd"
+        android:gravity="top"
+        android:singleLine="false"
+        android:lines="10"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/spinner1"
+        android:id="@+id/editText" />
+
+    <Button
+        android:id="@+id/submit_button"
+        android:text="@string/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

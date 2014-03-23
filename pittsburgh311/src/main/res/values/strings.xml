@@ -9,5 +9,37 @@
     <string name="setup">Quick Information Setup</string>
     <string name="title_activity_information">Information</string>
     <string name="title_activity_image_capture">ImageCapture</string>
+    <string name="making_comments">Making Comments</string>
+    <string name="submit">Submit</string>
+
+    <string name="topic_prompt">Choose a topic</string>
+
+    <string-array name="topic_arrays">
+        <item>Abandoned Vehicles</item>
+        <item>Animal Care &amp; Control</item>
+        <item>Building Violation or Problem</item>
+        <item>City Tree</item>
+        <item>Concern - issue or policy</item>
+        <item>Dumping</item>
+        <item>Graffiti</item>
+        <item>Meter</item>
+        <item>Other</item>
+        <item>Overgrowth - Private Property</item>
+        <item>Overgrowth - Public Property</item>
+        <item>Parking</item>
+        <item>Police or Public Safety</item>
+        <item>Potholes</item>
+        <item>Refuse Problem</item>
+        <item>Sewer or Catch Basin</item>
+        <item>Sidewalk (Needs repair)</item>
+        <item>Sidewalk-Snow covered only</item>
+        <item>Sign - Replacement</item>
+        <item>Sign - Request for New Signage</item>
+        <item>Snow &amp; Ice control</item>
+        <item>Street Cleaning</item>
+        <item>Street Light</item>
+        <item>Street Paving Request</item>
+        <item>Traffic</item>
+    </string-array>
 
 </resources>
