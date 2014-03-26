@@ -1,6 +1,7 @@
 package edu.pitt.cs1635.pittsburgh311;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.AttributeSet;
@@ -24,6 +25,8 @@ public class Information extends ActionBarActivity {
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent moveOn = new Intent(getApplicationContext(),Comments.class);
+                startActivity(moveOn);
                 TextView firstName = (TextView)findViewById(R.id.first_name);
                 TextView lastName = (TextView)findViewById(R.id.last_name);
             }
