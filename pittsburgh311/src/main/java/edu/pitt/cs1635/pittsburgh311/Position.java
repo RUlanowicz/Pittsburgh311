@@ -16,14 +16,16 @@ public class Position extends FragmentActivity {
         setContentView(R.layout.position);
         GoogleMap map = ((SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
 
-        LatLng pgh = new LatLng(40.4417, -80.0000);
+        LatLng pgh = new LatLng(40.441814, -80.012794);
 
-        map.setMyLocationEnabled(true);
+        map.getUiSettings().setMyLocationButtonEnabled(true);
+
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(pgh,13));
 
-        map.addMarker(new MarkerOptions()
-                .title("Pittsburgh")
-                .snippet("The best city")
-                .position(pgh));
+        Marker issueLoc = map.addMarker(new MarkerOptions()
+                .title("Issue Location")
+                .snippet("Drag to Problem Location")
+                .position(pgh)
+                .draggable(true));
     }
 }

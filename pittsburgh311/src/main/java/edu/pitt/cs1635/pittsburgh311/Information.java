@@ -15,22 +15,37 @@ import edu.pitt.cs1635.pittsburgh311.model.ProfileManager;
 
 
 public class Information extends ActionBarActivity {
-
+    TextView firstName, lastName, homeAddress, emailAddress, phoneNumber;
+    ProfileManager userProfile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_information);
+        firstName = (TextView)findViewById(R.id.first_name);
+        lastName = (TextView)findViewById(R.id.last_name);
+        homeAddress = (TextView)findViewById(R.id.address);
+        emailAddress = (TextView)findViewById(R.id.email_address);
+        phoneNumber = (TextView)findViewById(R.id.phone_number);
+        userProfile = ProfileManager.getInstance();
+        returnUserData();
+
         Button createButton = (Button)findViewById(R.id.setup_button);
-        ProfileManager userProfile = ProfileManager.getInstance();
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                saveProfileData();
                 Intent moveOn = new Intent(getApplicationContext(),Comments.class);
                 startActivity(moveOn);
-                TextView firstName = (TextView)findViewById(R.id.first_name);
-                TextView lastName = (TextView)findViewById(R.id.last_name);
             }
         });
+    }
+
+    private void returnUserData() {
+        firstName.setText(userProfile.getFirstName(getApplicationContext()));
+        lastName.setText(userProfile.getLastName(getApplicationContext()));
+        emailAddress.setText(userProfile.getEmail(getApplicationContext()));
+        homeAddress.setText(userProfile.getHomeAddress(getApplicationContext()));
+        phoneNumber.setText(userProfile.getPhoneNumber(getApplicationContext()));
     }
 
     @Override
@@ -39,7 +54,11 @@ public class Information extends ActionBarActivity {
     }
 
     private void saveProfileData() {
-
+        userProfile.setFirstName(getApplicationContext(),firstName.getText().toString());
+        userProfile.setLastName(getApplicationContext(),lastName.getText().toString());
+        userProfile.setEmail(getApplicationContext(),emailAddress.getText().toString());
+        userProfile.setHomeAddress(getApplicationContext(),homeAddress.getText().toString());
+        userProfile.setPhoneNumber(getApplicationContext(),phoneNumber.getText().toString());
     }
 
 
