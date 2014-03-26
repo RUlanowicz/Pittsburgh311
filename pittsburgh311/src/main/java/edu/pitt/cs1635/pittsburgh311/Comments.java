@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,6 +25,16 @@ public class Comments extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comments);
+
+        Button nextScreen = (Button)findViewById(R.id.comment_submit_button);
+        final Intent moveOn = new Intent(getApplicationContext(),Position.class);
+
+        nextScreen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(moveOn);
+            }
+        });
 
         Log.i("Comments", "In here");
 

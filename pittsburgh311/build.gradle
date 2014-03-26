@@ -4,6 +4,18 @@ android {
     compileSdkVersion 19
     buildToolsVersion "19.0.2"
 
+    signingConfigs {
+        debug {
+            storeFile file("debug.keystore")
+        }
+
+        release {
+            storeFile file("release.keystore")
+            storePassword "alias"
+            keyAlias      "dreamteam"
+            keyPassword   "dreamteam"
+        }
+    }
     defaultConfig {
         minSdkVersion 10
         targetSdkVersion 19
@@ -12,13 +24,18 @@ android {
     }
     buildTypes {
         release {
-            runProguard false
+            debuggable false
+            runProguard true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+        debug{
+            debuggable true
         }
     }
 }
 
 dependencies {
     compile 'com.android.support:appcompat-v7:+'
+    compile 'com.google.android.gms:play-services:4.3.23'
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
