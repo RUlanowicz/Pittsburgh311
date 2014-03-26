@@ -7,7 +7,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quick Information Setup"
+        android:text="@string/info_setup"
         android:layout_centerHorizontal="true"
         android:textSize="28dp"
         android:id="@+id/info_title"/>
@@ -18,8 +18,9 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/info_title"
         android:paddingTop="30dp"
-        android:hint="First Name"
-        android:id="@+id/first_name"/>
+        android:hint="@string/first_name"
+        android:id="@+id/first_name"
+        android:inputType="textPersonName"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -27,8 +28,9 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/first_name"
         android:paddingTop="15dp"
-        android:hint="Last Name"
-        android:id="@+id/last_name"/>
+        android:hint="@string/last_name"
+        android:id="@+id/last_name"
+        android:inputType="textPersonName"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -36,8 +38,9 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/last_name"
         android:paddingTop="15dp"
-        android:hint="Home Address"
-        android:id="@+id/address"/>
+        android:hint="@string/home_address"
+        android:id="@+id/address"
+        android:inputType="textPostalAddress"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -45,8 +48,9 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/address"
         android:paddingTop="15dp"
-        android:hint="Email Address"
-        android:id="@+id/email_address"/>
+        android:hint="@string/email_address"
+        android:id="@+id/email_address"
+        android:inputType="textEmailAddress"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -54,8 +58,9 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/email_address"
         android:paddingTop="15dp"
-        android:hint="Phone Number"
-        android:id="@+id/phone_number"/>
+        android:hint="@string/phone_number"
+        android:id="@+id/phone_number"
+        android:inputType="phone"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -63,6 +68,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:text="Create"
-        android:width="120dip"/>
+        android:width="120dip"
+        android:id="@+id/setup_button"/>
 
 </RelativeLayout>

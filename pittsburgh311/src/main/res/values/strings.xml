@@ -11,6 +11,12 @@
     <string name="title_activity_image_capture">ImageCapture</string>
     <string name="making_comments">Making Comments</string>
     <string name="submit">Submit</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email_address">Email Address</string>
+    <string name="home_address">Home Address</string>
+    <string name="last_name">Last Name</string>
+    <string name="first_name">First Name</string>
+    <string name="info_setup">Quick Information Setup</string>
 
     <string name="topic_prompt">Choose a topic</string>
 

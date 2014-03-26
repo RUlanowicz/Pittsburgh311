@@ -1,9 +1,16 @@
 package edu.pitt.cs1635.pittsburgh311;
 
+import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import edu.pitt.cs1635.pittsburgh311.model.ProfileManager;
 
 
 public class Information extends ActionBarActivity {
@@ -12,6 +19,24 @@ public class Information extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_information);
+        Button createButton = (Button)findViewById(R.id.setup_button);
+        ProfileManager userProfile = ProfileManager.getInstance();
+        createButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextView firstName = (TextView)findViewById(R.id.first_name);
+                TextView lastName = (TextView)findViewById(R.id.last_name);
+            }
+        });
+    }
+
+    @Override
+    public View onCreateView(View parent, String name, Context context, AttributeSet attrs) {
+        return null;
+    }
+
+    private void saveProfileData() {
+
     }
 
 
