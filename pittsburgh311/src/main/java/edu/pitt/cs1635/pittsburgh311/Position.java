@@ -1,7 +1,11 @@
 package edu.pitt.cs1635.pittsburgh311;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.View;
+import android.widget.Button;
+
 import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.*;
 
@@ -27,5 +31,16 @@ public class Position extends FragmentActivity {
                 .snippet("Drag to Problem Location")
                 .position(pgh)
                 .draggable(true));
+
+        Button submit = (Button) findViewById(R.id.position_submit_button);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent image = new Intent(getApplicationContext(),SubmissionComplete.class);
+                startActivity(image);
+            }
+        });
+
     }
+
 }

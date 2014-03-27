@@ -19,6 +19,11 @@
     <string name="info_setup">Quick Information Setup</string>
 
     <string name="topic_prompt">Choose a topic</string>
+    <string name="confirmation">Submission complete!</string>
+    <string name="home_button">Main Menu</string>
+    <string name="twitter_toast">Successfully posted to Twitter!</string>
+    <string name="facebook_toast">Successfully shared on Facebook!</string>
+
 
     <string-array name="topic_arrays">
         <item>Abandoned Vehicles</item>
