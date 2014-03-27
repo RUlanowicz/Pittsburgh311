@@ -24,7 +24,8 @@
             android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/submit"/>
+            android:text="@string/submit"
+            android:id="@+id/position_submit_button" />
 
     </RelativeLayout>
 
