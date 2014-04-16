@@ -46,7 +46,7 @@ public class Comments extends ActionBarActivity {
             try {
                 photoFile = createImageFile();
             } catch (IOException ex) {
-                // Error occurred while creating the File
+                ex.printStackTrace();
 
             }
             // Continue only if the File was successfully created

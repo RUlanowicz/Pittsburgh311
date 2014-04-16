@@ -4,14 +4,16 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_centerVertical="true">
+    android:layout_centerVertical="true"
+    android:background="@drawable/background311">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:id="@+id/information_button"
-        android:text="@string/information"/>
+        android:text="@string/information"
+        android:background="@android:drawable/btn_default"/>
 
     <Button
         android:id="@+id/guest_button"
@@ -21,15 +23,12 @@
         android:layout_below="@+id/information_button"
         android:layout_marginTop="45dp"
         android:layout_centerVertical="true"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true"
+        android:background="@android:drawable/btn_default"/>
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:layout_centerInParent="true"
-        android:layout_above="@id/information_button"
-        android:layout_marginBottom="65dp"
-        android:textSize="@dimen/abc_action_bar_title_text_size"/>
+        android:src="@drawable/logopitt311"/>
 
 </RelativeLayout>

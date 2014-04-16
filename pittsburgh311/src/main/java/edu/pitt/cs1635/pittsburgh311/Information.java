@@ -59,6 +59,7 @@ public class Information extends ActionBarActivity {
         userProfile.setEmail(getApplicationContext(),emailAddress.getText().toString());
         userProfile.setHomeAddress(getApplicationContext(),homeAddress.getText().toString());
         userProfile.setPhoneNumber(getApplicationContext(),phoneNumber.getText().toString());
+
     }
 
 
