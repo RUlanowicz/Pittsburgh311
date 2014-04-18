@@ -19,7 +19,7 @@ public class SubmissionComplete extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.confirmation_page);
         ImageButton twitterButton = (ImageButton)findViewById(R.id.twitter_button);
-        ImageButton facebookButton = (ImageButton)findViewById(R.id.facebook_button);
+//        ImageButton facebookButton = (ImageButton)findViewById(R.id.facebook_button);
         Button goBackHome = (Button)findViewById(R.id.main_menu_button);
 
         twitterButton.setOnClickListener(
@@ -31,14 +31,14 @@ public class SubmissionComplete extends FragmentActivity {
                 }
         );
 
-        facebookButton.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(getApplicationContext(), getString(R.string.facebook_toast), Toast.LENGTH_SHORT).show();
-                    }
-                }
-        );
+//        facebookButton.setOnClickListener(
+//                new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        Toast.makeText(getApplicationContext(), getString(R.string.facebook_toast), Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//        );
 
         goBackHome.setOnClickListener(new View.OnClickListener() {
             @Override
