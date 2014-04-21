@@ -11,15 +11,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import edu.pitt.cs1635.pittsburgh311.model.Incident;
+
 
 public class Comments extends ActionBarActivity {
-
+    Incident myIncident;
     static final int REQUEST_TAKE_PHOTO = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,16 +31,19 @@ public class Comments extends ActionBarActivity {
         setContentView(R.layout.activity_comments);
 
         Button nextScreen = (Button)findViewById(R.id.comment_submit_button);
+        final Spinner dropdown = (Spinner)findViewById(R.id.spinner1);
+        final EditText comments = (EditText)findViewById(R.id.editText);
         final Intent moveOn = new Intent(getApplicationContext(),Position.class);
+        myIncident = Incident.getInstance();
 
         nextScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(moveOn);
+                myIncident.setCategory(dropdown.getSelectedItem().toString());
+                myIncident.setComment(comments.getText().toString());
             }
         });
-
-        Log.i("Comments", "In here");
 
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         // Ensure that there's a camera activity to handle the intent
@@ -95,6 +102,7 @@ public class Comments extends ActionBarActivity {
 
         // Save a file: path for use with ACTION_VIEW intents
         mCurrentPhotoPath = "file:" + image.getAbsolutePath();
+        myIncident.setPhotoName(imageFileName+"jpg");
         return image;
     }
 
