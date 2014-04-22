@@ -1,6 +1,9 @@
 package edu.pitt.cs1635.pittsburgh311;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -12,7 +15,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,12 +30,15 @@ import edu.pitt.cs1635.pittsburgh311.model.Incident;
 public class Comments extends ActionBarActivity {
     Incident myIncident;
     static final int REQUEST_TAKE_PHOTO = 1;
+    ImageView imgPreview;
+    private Uri fileUri;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comments);
 
         Button nextScreen = (Button)findViewById(R.id.comment_submit_button);
+        imgPreview = (ImageView) findViewById(R.id.img_preview);
         final Spinner dropdown = (Spinner)findViewById(R.id.spinner1);
         final EditText comments = (EditText)findViewById(R.id.editText);
         final Intent moveOn = new Intent(getApplicationContext(),Position.class);
@@ -52,6 +60,7 @@ public class Comments extends ActionBarActivity {
             File photoFile = null;
             try {
                 photoFile = createImageFile();
+                fileUri = Uri.fromFile(photoFile);
             } catch (IOException ex) {
                 ex.printStackTrace();
 
@@ -92,8 +101,7 @@ public class Comments extends ActionBarActivity {
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_PICTURES);
+        File storageDir = Environment.getExternalStorageDirectory();
         File image = File.createTempFile(
                 imageFileName,  /* prefix */
                 ".jpg",         /* suffix */
@@ -102,8 +110,58 @@ public class Comments extends ActionBarActivity {
 
         // Save a file: path for use with ACTION_VIEW intents
         mCurrentPhotoPath = "file:" + image.getAbsolutePath();
-        myIncident.setPhotoName(imageFileName+"jpg");
+        myIncident.setPhoto(image);
+        myIncident.setPhotoName(imageFileName+".jpg");
         return image;
     }
 
+    /**
+     * Receiving activity result method will be called after closing the camera
+     * */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // if the result is capturing Image
+        if (requestCode == REQUEST_TAKE_PHOTO) {
+            if (resultCode == RESULT_OK) {
+                // successfully captured the image
+                // display it in image view
+                previewCapturedImage();
+
+            } else if (resultCode == RESULT_CANCELED) {
+                // user cancelled Image capture
+                Toast.makeText(getApplicationContext(),
+                        "User cancelled image capture", Toast.LENGTH_SHORT)
+                        .show();
+            } else {
+                // failed to capture image
+                Toast.makeText(getApplicationContext(),
+                        "Sorry! Failed to capture image", Toast.LENGTH_SHORT)
+                        .show();
+            }
+        }
+    }
+
+    /*
+     * Display image from a path to ImageView
+     */
+    private void previewCapturedImage() {
+        try {
+
+            imgPreview.setVisibility(View.VISIBLE);
+
+            // bimatp factory
+            BitmapFactory.Options options = new BitmapFactory.Options();
+
+            // downsizing image as it throws OutOfMemory Exception for larger
+            // images
+            options.inSampleSize = 8;
+
+            final Bitmap bitmap = BitmapFactory.decodeFile(fileUri.getPath(),
+                    options);
+
+            imgPreview.setImageBitmap(bitmap);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+    }
 }

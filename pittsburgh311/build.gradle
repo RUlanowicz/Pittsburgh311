@@ -4,6 +4,12 @@ android {
     compileSdkVersion 19
     buildToolsVersion "19.0.2"
 
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+
     signingConfigs {
         debug {
             storeFile file("debug.keystore")

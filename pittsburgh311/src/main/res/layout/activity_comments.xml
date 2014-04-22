@@ -40,6 +40,11 @@
         android:layout_below="@+id/spinner1"
         android:id="@+id/editText" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_preview"/>
+
     <Button
         android:id="@+id/comment_submit_button"
         android:text="@string/submit"

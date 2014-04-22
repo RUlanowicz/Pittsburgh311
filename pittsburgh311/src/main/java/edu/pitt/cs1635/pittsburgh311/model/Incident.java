@@ -4,12 +4,15 @@ import android.content.Context;
 
 import com.orm.SugarRecord;
 
+import java.io.File;
+
 /**
  * Created by ulanowicz on 4/18/14.
  */
 public class Incident {
 
     String comment, lat, lon, category, photoName, address;
+    File photo;
     private static Incident myIncident = null;
 
     public Incident(){} //empty constructor for singleton
@@ -41,6 +44,10 @@ public class Incident {
         return photoName;
     }
 
+    public File getPhoto(){
+        return photo;
+    }
+
     public String getAddress(){
         return address;
     }
@@ -67,5 +74,9 @@ public class Incident {
 
     public void setAddress(String address1){
         this.address = address1;
+    }
+
+    public void setPhoto(File photo1){
+        this.photo = photo1;
     }
 }
