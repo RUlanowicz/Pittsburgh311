@@ -5,11 +5,12 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.*;
@@ -19,7 +20,6 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.mime.HttpMultipartMode;
-import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -61,11 +61,12 @@ public class Position extends FragmentActivity {
         GoogleMap map = ((SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
         final Geocoder geocoder = new Geocoder(this, Locale.getDefault());
         final Button submit = (Button) findViewById(R.id.position_submit_button);
+        submit.setEnabled(false);
         userProfile = ProfileManager.getInstance();
 
-        LatLng pgh = new LatLng(40.441814, -80.012794);
+        Toast.makeText(getApplicationContext(),"Press and Hold Pin to Move",Toast.LENGTH_LONG).show();
 
-        map.getUiSettings().setMyLocationButtonEnabled(true);
+        LatLng pgh = new LatLng(40.441814, -80.012794);
 
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(pgh, 13));
 
@@ -100,6 +101,9 @@ public class Position extends FragmentActivity {
                     if(!city.contains("Pittsburgh")){
                         submit.setEnabled(false);
                     }
+                    else{
+                        submit.setEnabled(true);
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -109,10 +113,6 @@ public class Position extends FragmentActivity {
             @Override
             public void onClick(View v) {
                 new uploadReport().execute();
-
-                Intent image = new Intent(getApplicationContext(),SubmissionComplete.class);
-                startActivity(image);
-
 
             }
         });
@@ -159,6 +159,9 @@ public class Position extends FragmentActivity {
         protected void onPostExecute(String aVoid) {
             super.onPostExecute(aVoid);
             Log.i("Position Response: ",aVoid);
+
+            Intent image = new Intent(getApplicationContext(),SubmissionComplete.class);
+            startActivity(image);
         }
 
         @Override
