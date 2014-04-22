@@ -34,8 +34,7 @@ public class Information extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 saveProfileData();
-                Intent moveOn = new Intent(getApplicationContext(),Comments.class);
-                startActivity(moveOn);
+                finish();
             }
         });
     }
@@ -59,6 +58,9 @@ public class Information extends ActionBarActivity {
         userProfile.setEmail(getApplicationContext(),emailAddress.getText().toString());
         userProfile.setHomeAddress(getApplicationContext(),homeAddress.getText().toString());
         userProfile.setPhoneNumber(getApplicationContext(),phoneNumber.getText().toString());
+        if(!emailAddress.getText().toString().matches("")){
+            userProfile.setRegistered(getApplicationContext(),"true");
+        }
 
     }
 

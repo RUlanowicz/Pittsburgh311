@@ -4,8 +4,8 @@
     <string name="app_name">Pittsburgh311</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="information">Use My Information</string>
-    <string name="guest">Submit As Guest</string>
+    <string name="information">Register</string>
+    <string name="guest">File Report</string>
     <string name="setup">Quick Information Setup</string>
     <string name="title_activity_information">Information</string>
     <string name="title_activity_image_capture">ImageCapture</string>

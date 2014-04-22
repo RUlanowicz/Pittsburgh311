@@ -14,6 +14,7 @@ public class ProfileManager {
         String DATE_MODIFIED = "dateModified";
         String PHONE_NUMBER = "phoneNumber";
         String HOME_ADDRESS = "homeAddress";
+        String REGISTERED = "registered";
     }
 
     private static ProfileManager instance = null;
@@ -94,5 +95,17 @@ public class ProfileManager {
     public String getHomeAddress(Context context){
         SharedPreferences preferences = getPreferences(context);
         return preferences.getString(Fields.HOME_ADDRESS, null);
+    }
+
+    public void setRegistered(Context context, String homeAddress){
+        SharedPreferences.Editor editor = getEditor(context);
+        editor.putString(Fields.REGISTERED, homeAddress);
+        editor.putLong(Fields.DATE_MODIFIED, System.currentTimeMillis());
+        editor.commit();
+    }
+
+    public String getRegistered(Context context){
+        SharedPreferences preferences = getPreferences(context);
+        return preferences.getString(Fields.REGISTERED, null);
     }
 }

@@ -10,14 +10,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import edu.pitt.cs1635.pittsburgh311.model.ProfileManager;
+
 
 public class MainActivity extends ActionBarActivity {
-
+    ProfileManager myManager;
+    Button guestButton,infoButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.information_choice);
-        Button infoButton = (Button)findViewById(R.id.information_button);
+        infoButton = (Button)findViewById(R.id.information_button);
+        myManager = ProfileManager.getInstance();
         infoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -26,7 +30,7 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        Button guestButton = (Button)findViewById(R.id.guest_button);
+        guestButton = (Button)findViewById(R.id.guest_button);
         guestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,6 +38,15 @@ public class MainActivity extends ActionBarActivity {
                 startActivity(image);
             }
         });
+
+        if(myManager.getRegistered(getApplicationContext()) == null || myManager.getRegistered(getApplicationContext()).contains("false")){
+            guestButton.setVisibility(View.GONE);
+            infoButton.setVisibility(View.VISIBLE);
+        }
+        else{
+            guestButton.setVisibility(View.VISIBLE);
+            infoButton.setText("Change Information");
+        }
 }
 
 
@@ -57,4 +70,16 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(myManager.getRegistered(getApplicationContext()) == null || myManager.getRegistered(getApplicationContext()).contains("false")){
+            guestButton.setVisibility(View.GONE);
+            infoButton.setVisibility(View.VISIBLE);
+        }
+        else{
+            guestButton.setVisibility(View.VISIBLE);
+            infoButton.setText("Change Information");
+        }
+    }
 }
