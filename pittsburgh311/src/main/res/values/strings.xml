@@ -4,12 +4,12 @@
     <string name="app_name">Pittsburgh311</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="information">Use My Information</string>
-    <string name="guest">Submit As Guest</string>
+    <string name="information">Register</string>
+    <string name="guest">File Report</string>
     <string name="setup">Quick Information Setup</string>
     <string name="title_activity_information">Information</string>
     <string name="title_activity_image_capture">ImageCapture</string>
-    <string name="making_comments">Making Comments</string>
+    <string name="making_comments">Report Comments</string>
     <string name="submit">Submit</string>
     <string name="phone_number">Phone Number</string>
     <string name="email_address">Email Address</string>
@@ -23,6 +23,7 @@
     <string name="home_button">Main Menu</string>
     <string name="twitter_toast">Successfully posted to Twitter!</string>
     <string name="facebook_toast">Successfully shared on Facebook!</string>
+    <string name="create_button">Create</string>
 
 
     <string-array name="topic_arrays">

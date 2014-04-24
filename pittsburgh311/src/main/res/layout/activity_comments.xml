@@ -10,11 +10,14 @@
 
     <TextView
         android:text="@string/making_comments"
+        android:fontFamily="sans-serif-light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="25dp"
+        android:textSize="32sp"
+        android:paddingBottom="8dip"
+        android:paddingTop="10dip"
         android:textStyle="bold"
         android:id="@+id/textView"
         android:textIsSelectable="true" />

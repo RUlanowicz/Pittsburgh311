@@ -1,74 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:background="@drawable/background311">
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/info_setup"
         android:layout_centerHorizontal="true"
-        android:textSize="28dp"
+        android:textSize="32sp"
+        android:paddingBottom="8dip"
+        android:paddingTop="10dip"
+        android:fontFamily="sans-serif-light"
         android:id="@+id/info_title"/>
+    </RelativeLayout>
 
-    <EditText
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/info_title"
-        android:paddingTop="30dp"
-        android:hint="@string/first_name"
-        android:id="@+id/first_name"
-        android:inputType="textPersonName"/>
+        android:paddingTop="2dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:background="@android:color/white">
 
-    <EditText
-        android:layout_width="wrap_content"
+        <TextView
+            android:fontFamily="sans-serif-light"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/first_name"
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray"
+            android:layout_weight="0.5"/>
+
+        <EditText
+            android:id="@+id/first_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:singleLine="true"
+            android:lines="1"
+            android:inputType="textCapWords|textNoSuggestions"
+            android:nextFocusForward="@+id/lastNameEditText"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/first_name"
-        android:paddingTop="15dp"
-        android:hint="@string/last_name"
-        android:id="@+id/last_name"
-        android:inputType="textPersonName"/>
+        android:paddingTop="2dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:background="@android:color/white">
 
-    <EditText
-        android:layout_width="wrap_content"
+        <TextView
+            android:fontFamily="sans-serif-light"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/last_name"
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray"
+            android:layout_weight="0.5"/>
+
+        <EditText
+            android:id="@+id/last_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:singleLine="true"
+            android:lines="1"
+            android:inputType="textCapWords|textNoSuggestions"
+            android:nextFocusForward="@+id/address"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/last_name"
-        android:paddingTop="15dp"
-        android:hint="@string/home_address"
-        android:id="@+id/address"
-        android:inputType="textPostalAddress"/>
+        android:paddingTop="2dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:background="@android:color/white">
 
-    <EditText
-        android:layout_width="wrap_content"
+        <TextView
+            android:fontFamily="sans-serif-light"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/home_address"
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray"
+            android:layout_weight="0.5"/>
+
+        <EditText
+            android:id="@+id/address"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:singleLine="true"
+            android:lines="1"
+            android:inputType="textPostalAddress|textNoSuggestions"
+            android:nextFocusForward="@+id/email_address"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/address"
-        android:paddingTop="15dp"
-        android:hint="@string/email_address"
-        android:id="@+id/email_address"
-        android:inputType="textEmailAddress"/>
+        android:paddingTop="2dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:background="@android:color/white">
 
-    <EditText
-        android:layout_width="wrap_content"
+        <TextView
+            android:fontFamily="sans-serif-light"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/email_address"
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray"
+            android:layout_weight="0.5"/>
+
+        <EditText
+            android:id="@+id/email_address"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:singleLine="true"
+            android:lines="1"
+            android:inputType="textEmailAddress|textNoSuggestions"
+            android:nextFocusForward="@+id/phone_number"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/email_address"
-        android:paddingTop="15dp"
-        android:hint="@string/phone_number"
-        android:id="@+id/phone_number"
-        android:inputType="phone"/>
+        android:paddingTop="2dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:background="@android:color/white">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:text="Create"
-        android:width="120dip"
-        android:id="@+id/setup_button"/>
+        <TextView
+            android:fontFamily="sans-serif-light"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/first_name"
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray"
+            android:layout_weight="0.5"/>
 
-</RelativeLayout>
+        <EditText
+            android:id="@+id/phone_number"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:singleLine="true"
+            android:lines="1"
+            android:inputType="phone"
+            android:nextFocusForward="@+id/lastNameEditText"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/create_button"
+            android:width="120dip"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/setup_button"
+            android:background="@android:drawable/btn_default"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

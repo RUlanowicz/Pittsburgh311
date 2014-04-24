@@ -30,12 +30,17 @@ public class Information extends ActionBarActivity {
         returnUserData();
 
         Button createButton = (Button)findViewById(R.id.setup_button);
+        if(userProfile.getRegistered(getApplicationContext()) == null || userProfile.getRegistered(getApplicationContext()).contains("false")){
+            createButton.setText("Create");
+        }
+        else{
+            createButton.setText("Save");
+        }
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 saveProfileData();
-                Intent moveOn = new Intent(getApplicationContext(),Comments.class);
-                startActivity(moveOn);
+                finish();
             }
         });
     }
@@ -59,6 +64,9 @@ public class Information extends ActionBarActivity {
         userProfile.setEmail(getApplicationContext(),emailAddress.getText().toString());
         userProfile.setHomeAddress(getApplicationContext(),homeAddress.getText().toString());
         userProfile.setPhoneNumber(getApplicationContext(),phoneNumber.getText().toString());
+        if(!emailAddress.getText().toString().matches("")){
+            userProfile.setRegistered(getApplicationContext(),"true");
+        }
 
     }
 
