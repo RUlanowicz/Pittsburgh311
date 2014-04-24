@@ -30,6 +30,12 @@ public class Information extends ActionBarActivity {
         returnUserData();
 
         Button createButton = (Button)findViewById(R.id.setup_button);
+        if(userProfile.getRegistered(getApplicationContext()) == null || userProfile.getRegistered(getApplicationContext()).contains("false")){
+            createButton.setText("Create");
+        }
+        else{
+            createButton.setText("Save");
+        }
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
